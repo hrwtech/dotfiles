@@ -1,0 +1,14 @@
+{
+  "file": 1, 
+  "format": 1
+}{
+  "check_after_days": 1, 
+  "timeout": 180, 
+  "url": "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=littlesnitch-rule-group-subscriptions&mimetype=plaintext", 
+  "try_times": 3, 
+  "list_size": 1113733, 
+  "last_update": 1606751868.654274, 
+  "list_type": "", 
+  "list_compression": "", 
+  "load_on_start": true
+}
