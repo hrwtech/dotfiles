@@ -1,20 +1,24 @@
-#!/bin/bash
+#!/usr/local/bin/zsh
 
-. distro.sh
-. packages.sh
-. helpers.sh
+ln -sv "$PWD/git/.gitconfig" ~
 
-# Install packages in the official repositories
-# echo_info "Installing core packages..."
-# _install core
+ln -sv "$PWD/zsh/.alias.zsh" ~
+ln -sv "$PWD/zsh/.fzf.zsh" ~
+ln -sv "$PWD/zsh/.iterm2.zsh" ~
+ln -sv "$PWD/zsh/.p10k.zsh" ~
+ln -sv "$PWD/zsh/.apple.zsh" ~
+ln -sv "$PWD/zsh/.variables.zsh" ~
+ln -sv "$PWD/zsh/.zshrc" ~
 
-# Install packages in the AUR
-# echo_info "Installing aur packages..."
-# _install aur
+ln -sv "$PWD/zsh/plugins/nodenv" "$ZSH/custom/plugins"
+ln -sv "$PWD/zsh/plugins/zsh-vim-mode" "$ZSH/custom/plugins"
+ln -sv "$PWD/zsh/plugins/fast-syntax-highlighting" "$ZSH/custom/plugins"
 
-_update system
+ln -sv "$PWD/bin/fzf-find" "/usr/local/bin"
+chmod 755 /usr/local/bin/fzf-find
 
-_symlink
+ln -sv "$PWD/bin/imgcat" "/usr/local/bin"
+chmod 755 /usr/local/bin/imgcat
 
-xdg-mime default pcmanfm.desktop inode/directory
-
+ln -sv "$PWD/bin/screenshot" "/usr/local/bin"
+chmod 755 /usr/local/bin/screenshot
