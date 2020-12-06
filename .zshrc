@@ -1,3 +1,6 @@
+# neofetch
+# [ ! -e neofetch ] && neofetch
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -8,6 +11,8 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/Users/bigbucket/.rbenv/shims:~/.rbenv/bin:$PATH
 
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/bigbucket/.oh-my-zsh"
 
@@ -16,6 +21,8 @@ export ZSH="/Users/bigbucket/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
+source $ZSH/oh-my-zsh.sh
+# source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -83,6 +90,25 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # Uncomment the following line to use case-sensitive completion.
 ZSH_DISABLE_COMPFIX="true"
 
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Have alias-finder run automatically before each command.
+# ZSH_ALIAS_FINDER_AUTOMATIC="true"
+
+# User variables
+# source ~/.variables.zsh
+
+# Activate zsh plugins
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -91,7 +117,56 @@ ZSH_DISABLE_COMPFIX="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=()
+plugins=(
+    zsh-vim-mode
+    alias-finder
+    brew
+    colored-man-pages
+    command-not-found
+    common-aliases
+    copydir
+    copyfile
+    docker
+    docker-compose
+    dotenv
+    ember-cli
+    encode64
+    extract
+    fancy-ctrl-z
+    fd
+    gatsby
+    git
+    jira
+    jsontools
+    kubectl
+    node
+    npm
+    # npx
+    osx
+    ripgrep
+    # ssh-agent
+    urltools
+    vscode
+    web-search
+    z
+    zsh_reload
+    nodenv
+    fast-syntax-highlighting
+)
+
+# source ~/.p10k.zsh
+# source ~/.iterm2.zsh
+# source ~/.fzf.zsh
+
+# zsh completions
+# fpath=(/usr/local/share/zsh-completions $fpath)
+
+# Load ssh identities
+# zstyle :omz:plugins:ssh-agent identities id_rsa apple_id_rsa
+
+# Zsh options
+# Set extended glob
+# setopt extended_glob
 
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -100,9 +175,7 @@ if type brew &>/dev/null; then
     compinit
   fi
 
-source $ZSH/oh-my-zsh.sh
-
-#source $(dirname $(gem which colorls))/tab_complete.sh
+# source $(dirname $(gem which colorls))/tab_complete.sh
 
 # User configuration
 
@@ -129,14 +202,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# source ~/.alias.zsh
+# source ~/.apple.zsh
 alias pretty="exec 3<&1;bash <&3 <(curl https://raw.githubusercontent.com/paulolramos/eslint-prettier-airbnb-react/master/eslint-prettier-config.sh 2> /dev/null)"
 alias lc='colorls -lA --sd'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
